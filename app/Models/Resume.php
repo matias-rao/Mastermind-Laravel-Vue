@@ -11,11 +11,7 @@ class Resume extends Model
 
     protected $fillable = [
         'title',
-        'name',
-        'email',
-        'website',
-        'picture',
-        'about'
+        'content'
     ];
 
     public function user(){

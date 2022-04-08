@@ -13,7 +13,7 @@ class CreateResumesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resume', function (Blueprint $table) {
+        Schema::create('resumes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('user_id');

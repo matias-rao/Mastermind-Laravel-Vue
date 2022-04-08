@@ -6,6 +6,14 @@ export default {
             label: 'Resume profile image',
             model: 'picture',
         },
+        {
+            type: "input",
+            inputType: "text",
+            label: "Title",
+            placeholder: "Wow this is my resume",
+            model: "title",
+            inputName: "title",
+        },
         //name
         {
             type:'input',

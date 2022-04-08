@@ -47,16 +47,14 @@ class ResumeController extends Controller
         $user = auth()->user();
 
         $resume = $user->resumes()->where('title', $request->title)->first();
-        if ($resume) {
-            return back()
-                ->withErrors(['title' => 'Ya tenes un CV con ese titulo'])
-                ->withInput(['title' => $request->title]);
-        }
+
+//        dd($request);
 
         $resume = $user->resumes()->create([
             'title' => $request['title'],
             'name' => $user->name,
             'email' => $user->email,
+            'content' => $request['content']
 //            'website' => $request['title'],
 //            'picture' => $request['title'],
 //            'about' => $request['title']
