@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Resume;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-
+use Illuminate\Support\Facades\Validator;
 
 class ResumeController extends Controller
 {
@@ -46,23 +45,19 @@ class ResumeController extends Controller
     {
         $user = auth()->user();
 
-        $resume = $user->resumes()->where('title', $request->title)->first();
-
-//        dd($request);
+        $validator = $request->validate([
+            'title' => 'required|string',
+            'content' => 'required|json',
+        ]);
 
         $resume = $user->resumes()->create([
-            'title' => $request['title'],
             'name' => $user->name,
             'email' => $user->email,
+            'title' => $request['title'],
             'content' => $request['content']
-//            'website' => $request['title'],
-//            'picture' => $request['title'],
-//            'about' => $request['title']
         ]);
 
         return redirect()->route('resumes.index');
-
-
     }
 
     /**
@@ -96,18 +91,7 @@ class ResumeController extends Controller
      */
     public function update(Request $request, Resume $resume)
     {
-        $data = $request->validate([
-            'name' => ['required', 'string'],
-            'email' => ['required', 'email'],
-            'website' => ['nullable', 'url'],
-            'picture' => ['nullable', 'image'],
-            'about' => ['nullable', 'string'],
-            'title' => Rule::unique('resume')->where(function ($query) use ($resume) {
-                return $query->where('user_id', $resume->user->id);
-            })->ignore($resume->id)
-        ]);
-
-        return redirect()->route('resumes.index');
+        //
     }
 
     /**

@@ -9,8 +9,15 @@
                 Pistas: Se debera utilizar las propiedades para pasar los errores que devuelva laravel
                 BonusTrack: Si existe algun error, y algun campo de content tenia un valor, que lo traiga.
             -->
+            <strong v-if="errors.length != 0" class="alert-danger">
+                Please fix the following error(s):
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+            </strong>
             <Tab title="Basics" icon="fas fa-user">
 <!--                <FieldResumeImage/>-->
+
                 <VueFormGenerator
                     :schema="schemas.basics"
                     :model="resume.content.basics"
@@ -66,6 +73,9 @@ import 'vue-form-generator/dist/vfg.css';
      components: {
         Tabs, Tab, VueFormGenerator, DynamicForm
      },
+
+     props: ['errors', 'info' ],
+
      data(){
         return{
             resume: {

@@ -5325,6 +5325,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5343,6 +5350,7 @@ __webpack_require__.r(__webpack_exports__);
     VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_8__.component,
     DynamicForm: _dynamic_DynamicForm__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
+  props: ['errors', 'info'],
   data: function data() {
     return {
       resume: {
@@ -5749,7 +5757,7 @@ __webpack_require__.r(__webpack_exports__);
   {
     type: 'input',
     inputType: 'text',
-    placeholder: 'Programer',
+    placeholder: 'Programmer',
     label: 'Label',
     model: 'label',
     styleClasses: ['col-md-4', 'p-1', 'pr-md-1']
@@ -34162,6 +34170,21 @@ var render = function () {
             attrs: { type: "hidden", name: "content" },
             domProps: { value: JSON.stringify(_vm.resume.content) },
           }),
+          _vm._v(" "),
+          _vm.errors.length != 0
+            ? _c("strong", { staticClass: "alert-danger" }, [
+                _vm._v(
+                  "\n                Please fix the following error(s):\n                "
+                ),
+                _c(
+                  "ul",
+                  _vm._l(_vm.errors, function (error) {
+                    return _c("li", [_vm._v(_vm._s(error))])
+                  }),
+                  0
+                ),
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "Tab",

@@ -27,7 +27,7 @@ export default {
         {
             type:'input',
             inputType:'text',
-            placeholder:'Programer',
+            placeholder:'Programmer',
             label: 'Label',
             model: 'label',
             styleClasses: ['col-md-4', 'p-1', 'pr-md-1'],
