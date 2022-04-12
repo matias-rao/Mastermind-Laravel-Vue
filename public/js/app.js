@@ -5332,6 +5332,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5351,6 +5353,19 @@ __webpack_require__.r(__webpack_exports__);
     DynamicForm: _dynamic_DynamicForm__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: ['errors', 'info'],
+  beforeCreate: function beforeCreate() {
+    console.log(this.$props);
+  },
+  mounted: function mounted() {
+    console.log(this.$props);
+    this.$nextTick(function () {
+      // Code that will run only after the
+      // entire view has been rendered
+      if (this.$props.info) {
+        this.resume.content = JSON.parse(this.$props.info);
+      }
+    });
+  },
   data: function data() {
     return {
       resume: {
@@ -5744,7 +5759,8 @@ __webpack_require__.r(__webpack_exports__);
     label: "Title",
     placeholder: "Wow this is my resume",
     model: "title",
-    inputName: "title"
+    inputName: "title",
+    required: true
   }, //name
   {
     type: 'input',
@@ -5966,7 +5982,8 @@ __webpack_require__.r(__webpack_exports__);
     placeholder: 'Netactics',
     label: 'Company',
     model: 'company',
-    styleClasses: ['col-md-4', 'p-1', 'pr-md-1']
+    styleClasses: ['col-md-4', 'p-1', 'pr-md-1'],
+    required: true
   }, //Position
   {
     type: 'input',
@@ -34171,25 +34188,25 @@ var render = function () {
             domProps: { value: JSON.stringify(_vm.resume.content) },
           }),
           _vm._v(" "),
-          _vm.errors.length != 0
-            ? _c("strong", { staticClass: "alert-danger" }, [
-                _vm._v(
-                  "\n                Please fix the following error(s):\n                "
-                ),
-                _c(
-                  "ul",
-                  _vm._l(_vm.errors, function (error) {
-                    return _c("li", [_vm._v(_vm._s(error))])
-                  }),
-                  0
-                ),
-              ])
-            : _vm._e(),
-          _vm._v(" "),
           _c(
             "Tab",
             { attrs: { title: "Basics", icon: "fas fa-user" } },
             [
+              _vm.errors.length != 0
+                ? _c("strong", { staticClass: "alert-danger" }, [
+                    _vm._v(
+                      "\n                Please fix the following error(s):\n                "
+                    ),
+                    _c(
+                      "ul",
+                      _vm._l(_vm.errors, function (error) {
+                        return _c("li", [_vm._v(_vm._s(error))])
+                      }),
+                      0
+                    ),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
               _c("VueFormGenerator", {
                 attrs: {
                   schema: _vm.schemas.basics,

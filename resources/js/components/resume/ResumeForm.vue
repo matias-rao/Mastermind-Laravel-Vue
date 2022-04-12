@@ -8,15 +8,16 @@
                 TODO: Si titulo y contenido son valores nulos, devolver errores por laravel, no mostrar al usuario errores SQL
                 Pistas: Se debera utilizar las propiedades para pasar los errores que devuelva laravel
                 BonusTrack: Si existe algun error, y algun campo de content tenia un valor, que lo traiga.
+
+                eventhandler
             -->
-            <strong v-if="errors.length != 0" class="alert-danger">
-                Please fix the following error(s):
-                <ul>
-                    <li v-for="error in errors">{{ error }}</li>
-                </ul>
-            </strong>
-            <Tab title="Basics" icon="fas fa-user">
-<!--                <FieldResumeImage/>-->
+            <Tab title="Basics" icon="fas fa-user" >
+                <strong v-if="errors.length != 0" class="alert-danger">
+                    Please fix the following error(s):
+                    <ul>
+                        <li v-for="error in errors">{{ error }}</li>
+                    </ul>
+                </strong>
 
                 <VueFormGenerator
                     :schema="schemas.basics"
@@ -29,6 +30,7 @@
                     :options="options"
                 />
             </Tab>
+
             <Tab title="Profiles" icon="fa fa-users">
                 <DynamicForm
                     title="Profile"
@@ -53,7 +55,7 @@
                     :schema="schemas.education"
                 />
             </Tab>
-            <button type="submit">Enviar</button>
+            <button type="submit" >Enviar</button>
         </Tabs>
     </div>
 </template>
@@ -73,11 +75,25 @@ import 'vue-form-generator/dist/vfg.css';
      components: {
         Tabs, Tab, VueFormGenerator, DynamicForm
      },
-
      props: ['errors', 'info' ],
+     beforeCreate() {
+        console.log(this.$props);
+     },
 
+     mounted: function () {
+         console.log(this.$props);
+         this.$nextTick(function () {
+             // Code that will run only after the
+             // entire view has been rendered
+             if(this.$props.info){
+                 this.resume.content = JSON.parse(this.$props.info);
+
+             }
+         })
+     },
      data(){
         return{
+
             resume: {
                 title: '',
                 content: {
@@ -93,7 +109,8 @@ import 'vue-form-generator/dist/vfg.css';
                 validateAfterLoad: true,
                 validateAfterChanged:true,
                 ValidateAsync: true
-            }
+            },
+
         }
      }
  }

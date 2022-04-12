@@ -13,6 +13,7 @@ export default {
             placeholder: "Wow this is my resume",
             model: "title",
             inputName: "title",
+            required: true
         },
         //name
         {

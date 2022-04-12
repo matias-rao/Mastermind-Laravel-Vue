@@ -8,6 +8,7 @@ export default {
             label: 'Company',
             model:'company',
             styleClasses: ['col-md-4', 'p-1', 'pr-md-1'],
+            required: true
         },
         //Position
         {
