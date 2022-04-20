@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('resumes.store')}}">
                             @csrf
-                            <resume-form :errors="{{$errors}}" info="{{ old('content') }}"></resume-form>
+                            <resume-form :errors="{{$errors}}" ></resume-form>
                         </form>
                     </div>
                 </div>

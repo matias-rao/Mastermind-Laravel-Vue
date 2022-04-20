@@ -34533,7 +34533,7 @@ var render = function () {
                   _c("VueFormGenerator", {
                     attrs: {
                       schema: _vm.schema,
-                      model: _vm.target[_vm.prop][i],
+                      model: _vm.model[_vm.self][i],
                       options: _vm.options,
                     },
                   }),

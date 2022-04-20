@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <VueFormGenerator
                             :schema="schema"
-                            :model="target[prop][i]"
+                            :model="model[self][i]"
                             :options="options"
                         />
                     </div>
