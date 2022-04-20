@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="container">
-            {{-- todos los resumenes del user, con la id y el titulo(link), fecha creacion,  --}}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Index Resumes</div>
+                    <div class="card-body">
+                        <resumes-index :resumes="{{$resumes}}"></resumes-index>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

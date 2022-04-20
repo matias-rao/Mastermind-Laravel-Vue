@@ -20,9 +20,8 @@ class ResumeController extends Controller
      */
     public function index()
     {
-//        $resume = auth()->user()->resume;
-//        dd($resume);
-        return view('resumes.index');
+        $resumes = auth()->user()->resumes;
+        return view('resumes.index', compact('resumes'));
     }
 
     /**
@@ -91,7 +90,9 @@ class ResumeController extends Controller
      */
     public function update(Request $request, Resume $resume)
     {
-        //
+//        dd($request);
+        $resume->update($request->all());
+        return redirect()->route('resumes.index');
     }
 
     /**

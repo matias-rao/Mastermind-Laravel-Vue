@@ -76,30 +76,29 @@ import 'vue-form-generator/dist/vfg.css';
         Tabs, Tab, VueFormGenerator, DynamicForm
      },
      props: ['errors', 'info' ],
-     beforeCreate() {
-        console.log(this.$props);
-     },
 
      mounted: function () {
-         console.log(this.$props);
+         // console.log(this.$props);
          this.$nextTick(function () {
              // Code that will run only after the
              // entire view has been rendered
              if(this.$props.info){
-                 this.resume.content = JSON.parse(this.$props.info);
-
+                 var resume = this.$props.info;
+                 this.resume.content = JSON.parse(resume);
              }
          })
      },
      data(){
         return{
-
             resume: {
                 title: '',
                 content: {
                     basics: {
                         location: {},
-                    }
+                        profiles: [{}]
+                    },
+                    work: [{}],
+                    education: [{}]
                 }
             },
             schemas: {

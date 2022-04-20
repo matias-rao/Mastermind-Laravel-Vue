@@ -24,6 +24,8 @@ Vue.component('Tab', require('./components/resume/tabs/Tab.vue').default);
 Vue.component('Tabs', require('./components/resume/tabs/Tabs.vue').default);
 Vue.component('FieldResumeImage', require('./components/resume/vfg/FieldResumeImage.vue').default);
 
+Vue.component('ResumesIndex', require('./components/index/ResumesIndex.vue').default);
+
 
 
 /**

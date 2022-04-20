@@ -5251,6 +5251,48 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index/ResumesIndex.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index/ResumesIndex.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'ResumeIndex',
+  props: {
+    resumes: Array
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/ResumeForm.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/ResumeForm.vue?vue&type=script&lang=js& ***!
@@ -5353,16 +5395,14 @@ __webpack_require__.r(__webpack_exports__);
     DynamicForm: _dynamic_DynamicForm__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: ['errors', 'info'],
-  beforeCreate: function beforeCreate() {
-    console.log(this.$props);
-  },
   mounted: function mounted() {
-    console.log(this.$props);
+    // console.log(this.$props);
     this.$nextTick(function () {
       // Code that will run only after the
       // entire view has been rendered
       if (this.$props.info) {
-        this.resume.content = JSON.parse(this.$props.info);
+        var resume = this.$props.info;
+        this.resume.content = JSON.parse(resume);
       }
     });
   },
@@ -5372,8 +5412,11 @@ __webpack_require__.r(__webpack_exports__);
         title: '',
         content: {
           basics: {
-            location: {}
-          }
+            location: {},
+            profiles: [{}]
+          },
+          work: [{}],
+          education: [{}]
         }
       },
       schemas: {
@@ -5436,10 +5479,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5453,6 +5492,15 @@ __webpack_require__.r(__webpack_exports__);
       type: Object,
       required: true
     }
+  },
+  data: function data() {
+    return {
+      options: {
+        validateAfterLoad: true,
+        validateAfterChanged: true,
+        ValidateAsync: true
+      }
+    };
   }
 });
 
@@ -5626,6 +5674,7 @@ Vue.component('ResumeForm', (__webpack_require__(/*! ./components/resume/ResumeF
 Vue.component('Tab', (__webpack_require__(/*! ./components/resume/tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue")["default"]));
 Vue.component('Tabs', (__webpack_require__(/*! ./components/resume/tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue")["default"]));
 Vue.component('FieldResumeImage', (__webpack_require__(/*! ./components/resume/vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue")["default"]));
+Vue.component('ResumesIndex', (__webpack_require__(/*! ./components/index/ResumesIndex.vue */ "./resources/js/components/index/ResumesIndex.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -5982,8 +6031,7 @@ __webpack_require__.r(__webpack_exports__);
     placeholder: 'Netactics',
     label: 'Company',
     model: 'company',
-    styleClasses: ['col-md-4', 'p-1', 'pr-md-1'],
-    required: true
+    styleClasses: ['col-md-4', 'p-1', 'pr-md-1']
   }, //Position
   {
     type: 'input',
@@ -33786,6 +33834,45 @@ var e=function(){return(e=Object.assign||function(e){for(var t,r=1,s=arguments.l
 
 /***/ }),
 
+/***/ "./resources/js/components/index/ResumesIndex.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/index/ResumesIndex.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ResumesIndex_vue_vue_type_template_id_813ba458___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ResumesIndex.vue?vue&type=template&id=813ba458& */ "./resources/js/components/index/ResumesIndex.vue?vue&type=template&id=813ba458&");
+/* harmony import */ var _ResumesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ResumesIndex.vue?vue&type=script&lang=js& */ "./resources/js/components/index/ResumesIndex.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ResumesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ResumesIndex_vue_vue_type_template_id_813ba458___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ResumesIndex_vue_vue_type_template_id_813ba458___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/index/ResumesIndex.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/resume/ResumeForm.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/components/resume/ResumeForm.vue ***!
@@ -33983,6 +34070,22 @@ component.options.__file = "resources/js/components/resume/vfg/FieldResumeImage.
 
 /***/ }),
 
+/***/ "./resources/js/components/index/ResumesIndex.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/index/ResumesIndex.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ResumesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ResumesIndex.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index/ResumesIndex.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ResumesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/resume/ResumeForm.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
   !*** ./resources/js/components/resume/ResumeForm.vue?vue&type=script&lang=js& ***!
@@ -34076,6 +34179,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/index/ResumesIndex.vue?vue&type=template&id=813ba458&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/index/ResumesIndex.vue?vue&type=template&id=813ba458& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ResumesIndex_vue_vue_type_template_id_813ba458___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ResumesIndex_vue_vue_type_template_id_813ba458___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ResumesIndex_vue_vue_type_template_id_813ba458___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ResumesIndex.vue?vue&type=template&id=813ba458& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index/ResumesIndex.vue?vue&type=template&id=813ba458&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/resume/ResumeForm.vue?vue&type=template&id=1c63bd98&":
 /*!**************************************************************************************!*\
   !*** ./resources/js/components/resume/ResumeForm.vue?vue&type=template&id=1c63bd98& ***!
@@ -34157,6 +34277,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldResumeImage_vue_vue_type_template_id_758d89f3_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FieldResumeImage_vue_vue_type_template_id_758d89f3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FieldResumeImage.vue?vue&type=template&id=758d89f3&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/vfg/FieldResumeImage.vue?vue&type=template&id=758d89f3&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index/ResumesIndex.vue?vue&type=template&id=813ba458&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index/ResumesIndex.vue?vue&type=template&id=813ba458& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("table", { staticClass: "table" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "tbody",
+      _vm._l(_vm.resumes, function (resume) {
+        return _c("div", { key: resume.id }, [
+          _c("tr", [
+            _c("td", [_vm._v(_vm._s(resume.id))]),
+            _vm._v(" "),
+            _c("td", [
+              _c("a", { attrs: { href: "/resumes/" + resume.id + "/edit" } }, [
+                _vm._v(_vm._s(resume.title)),
+              ]),
+            ]),
+          ]),
+        ])
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
 
 
 /***/ }),
@@ -34356,11 +34534,7 @@ var render = function () {
                     attrs: {
                       schema: _vm.schema,
                       model: _vm.target[_vm.prop][i],
-                      options: {
-                        validateAfterLoad: true,
-                        validateAfterChanged: true,
-                        ValidateAsync: true,
-                      },
+                      options: _vm.options,
                     },
                   }),
                 ],

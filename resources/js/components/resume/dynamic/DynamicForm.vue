@@ -17,11 +17,7 @@
                         <VueFormGenerator
                             :schema="schema"
                             :model="target[prop][i]"
-                            :options="{
-                                validateAfterLoad: true,
-                                validateAfterChanged:true,
-                                ValidateAsync: true
-                            }"
+                            :options="options"
                         />
                     </div>
                 </div>
@@ -44,6 +40,15 @@ export default {
         schema: {
             type: Object,
             required: true,
+        },
+    },
+    data(){
+        return{
+            options: {
+                validateAfterLoad: true,
+                validateAfterChanged:true,
+                ValidateAsync: true
+            },
         }
     },
 };
