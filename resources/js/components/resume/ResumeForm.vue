@@ -75,24 +75,27 @@ import 'vue-form-generator/dist/vfg.css';
      components: {
         Tabs, Tab, VueFormGenerator, DynamicForm
      },
-     props: ['errors', 'info' ],
+     props: ['errors', 'info'],
 
-     mounted: function () {
+     created: function () {
          // console.log(this.$props);
          this.$nextTick(function () {
              // Code that will run only after the
              // entire view has been rendered
+             // console.log(typeof this.$props.info);
              if(this.$props.info){
-                 var resume = this.$props.info;
-                 this.resume.content = JSON.parse(resume);
+                 // this.resume.content = JSON.parse(this.$props.info);
+                 this.$set(this.resume, 'content', JSON.parse(this.$props.info))
              }
          })
      },
+
      data(){
         return{
             resume: {
                 title: '',
-                content: {
+                content:
+                    {
                     basics: {
                         location: {},
                         profiles: [{}]
@@ -100,7 +103,8 @@ import 'vue-form-generator/dist/vfg.css';
                     work: [{}],
                     education: [{}]
                 }
-            },
+            }
+            ,
             schemas: {
                 basics, location, profiles, work, education
             },

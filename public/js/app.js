@@ -5395,14 +5395,15 @@ __webpack_require__.r(__webpack_exports__);
     DynamicForm: _dynamic_DynamicForm__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: ['errors', 'info'],
-  mounted: function mounted() {
+  created: function created() {
     // console.log(this.$props);
     this.$nextTick(function () {
       // Code that will run only after the
       // entire view has been rendered
+      // console.log(typeof this.$props.info);
       if (this.$props.info) {
-        var resume = this.$props.info;
-        this.resume.content = JSON.parse(resume);
+        // this.resume.content = JSON.parse(this.$props.info);
+        this.$set(this.resume, 'content', JSON.parse(this.$props.info));
       }
     });
   },
