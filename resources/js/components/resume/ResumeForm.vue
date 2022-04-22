@@ -2,7 +2,7 @@
     <div>
         <Tabs>
 
-            <input type="hidden" name="content" v-bind:value="JSON.stringify(resume.content)" />
+            <input type="hidden" name="content" v-bind:value="JSON.stringify(resume.content)"/>
 
             <!--
                 TODO: Si titulo y contenido son valores nulos, devolver errores por laravel, no mostrar al usuario errores SQL
@@ -11,7 +11,7 @@
 
                 eventhandler
             -->
-            <Tab title="Basics" icon="fas fa-user" >
+            <Tab title="Basics" icon="fas fa-user">
                 <strong v-if="errors.length != 0" class="alert-danger">
                     Please fix the following error(s):
                     <ul>
@@ -55,7 +55,7 @@
                     :schema="schemas.education"
                 />
             </Tab>
-            <button type="submit" >Enviar</button>
+            <button type="submit">Enviar</button>
         </Tabs>
     </div>
 </template>
@@ -70,32 +70,26 @@ import profiles from "./schema/basics/profiles";
 import DynamicForm from "./dynamic/DynamicForm";
 import {component as VueFormGenerator} from 'vue-form-generator';
 import 'vue-form-generator/dist/vfg.css';
- export default {
+
+export default {
     name: 'ResumeForm',
-     components: {
+    components: {
         Tabs, Tab, VueFormGenerator, DynamicForm
-     },
-     props: ['errors', 'info'],
+    },
+    props: ['errors', 'info'],
 
-     created: function () {
-         // console.log(this.$props);
-         this.$nextTick(function () {
-             // Code that will run only after the
-             // entire view has been rendered
-             // console.log(typeof this.$props.info);
-             if(this.$props.info){
-                 // this.resume.content = JSON.parse(this.$props.info);
-                 this.$set(this.resume, 'content', JSON.parse(this.$props.info))
-             }
-         })
-     },
+    mounted: function () {
+        console.log(this.$props.info);
 
-     data(){
-        return{
-            resume: {
-                title: '',
-                content:
-                    {
+        watch: {
+            // Code that will run only after the
+            // entire view has been rendered
+            // console.log(typeof this.$props.info);
+            if (this.$props.info) {
+                // this.resume.content = JSON.parse(this.$props.info);
+                this.$set(this.resume, 'content', JSON.parse(this.$props.info))
+            } else {
+                this.resume.content = {
                     basics: {
                         location: {},
                         profiles: [{}]
@@ -104,17 +98,27 @@ import 'vue-form-generator/dist/vfg.css';
                     education: [{}]
                 }
             }
+        }
+
+    },
+
+    data() {
+        return {
+            resume: {
+                title: '',
+                content: this.$props.info,
+            }
             ,
             schemas: {
                 basics, location, profiles, work, education
             },
-            options:{
+            options: {
                 validateAfterLoad: true,
-                validateAfterChanged:true,
+                validateAfterChanged: true,
                 ValidateAsync: true
             },
 
         }
-     }
- }
+    }
+}
 </script>

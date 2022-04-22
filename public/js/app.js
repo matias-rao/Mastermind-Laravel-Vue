@@ -5395,30 +5395,33 @@ __webpack_require__.r(__webpack_exports__);
     DynamicForm: _dynamic_DynamicForm__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: ['errors', 'info'],
-  created: function created() {
-    // console.log(this.$props);
-    this.$nextTick(function () {
+  mounted: function mounted() {
+    console.log(this.$props.info);
+
+    watch: {
       // Code that will run only after the
       // entire view has been rendered
       // console.log(typeof this.$props.info);
       if (this.$props.info) {
         // this.resume.content = JSON.parse(this.$props.info);
         this.$set(this.resume, 'content', JSON.parse(this.$props.info));
-      }
-    });
-  },
-  data: function data() {
-    return {
-      resume: {
-        title: '',
-        content: {
+      } else {
+        this.resume.content = {
           basics: {
             location: {},
             profiles: [{}]
           },
           work: [{}],
           education: [{}]
-        }
+        };
+      }
+    }
+  },
+  data: function data() {
+    return {
+      resume: {
+        title: '',
+        content: this.$props.info
       },
       schemas: {
         basics: _schema_basics_basics__WEBPACK_IMPORTED_MODULE_2__["default"],
