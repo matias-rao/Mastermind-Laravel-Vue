@@ -5284,10 +5284,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ResumeIndex',
   props: {
     resumes: Array
+  },
+  methods: {
+    deleteResume: function deleteResume(resumeId) {
+      axios.post("/resumes/".concat(resumeId), {
+        _method: 'DELETE'
+      }).then(function (response) {
+        location.reload();
+      });
+    }
   }
 });
 
@@ -5315,13 +5327,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-form-generator */ "./node_modules/vue-form-generator/dist/vfg.js");
 /* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_form_generator__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var vue_form_generator_dist_vfg_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-form-generator/dist/vfg.css */ "./node_modules/vue-form-generator/dist/vfg.css");
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -34307,14 +34312,43 @@ var render = function () {
     _c(
       "tbody",
       _vm._l(_vm.resumes, function (resume) {
-        return _c("div", { key: resume.id }, [
-          _c("tr", [
-            _c("td", [_vm._v(_vm._s(resume.id))]),
-            _vm._v(" "),
-            _c("td", [
-              _c("a", { attrs: { href: "/resumes/" + resume.id + "/edit" } }, [
-                _vm._v(_vm._s(resume.title)),
+        return _c("tr", { key: resume.id }, [
+          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(resume.id))]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-uppercase bg-dark text-info " }, [
+            _vm._v(_vm._s(resume.title)),
+          ]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "d-flex justify-content-end" }, [
+              _c("div", { staticClass: "mx-2" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: "/resumes/" + resume.id + "/edit" },
+                  },
+                  [_vm._v("Edit")]
+                ),
               ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.deleteResume(resume.id)
+                    },
+                  },
+                },
+                [
+                  _vm._v(
+                    "\n                        Delete\n                    "
+                  ),
+                ]
+              ),
             ]),
           ]),
         ])

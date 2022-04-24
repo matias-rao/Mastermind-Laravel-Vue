@@ -7,17 +7,20 @@
         </tr>
         </thead>
         <tbody>
-        <div v-for="resume in resumes" :key="resume.id">
-            <!--  -->
-            <tr>
-                <td>{{resume.id}}</td>
-                <td><a class="" :href="'/resumes/' + resume.id + '/edit'">{{resume.title}}</a></td>
+            <tr v-for="resume in resumes" :key="resume.id">
+                <th scope="row">{{ resume.id }}</th>
+                <td class="text-uppercase bg-dark text-info ">{{ resume.title }}</td>
+                <td>
+                    <div class="d-flex justify-content-end">
+                        <div class="mx-2"><a :href="'/resumes/' + resume.id + '/edit'" class="btn btn-primary">Edit</a></div>
+                        <button type="submit" class="btn btn-danger"  v-on:click="deleteResume(resume.id)">
+                            Delete
+                        </button>
+                    </div>
+                </td>
             </tr>
-        </div>
         </tbody>
     </table>
-
-
 
 </template>
 <script>
@@ -26,6 +29,18 @@ export default {
     name: 'ResumeIndex',
     props: {
         resumes: Array
+    },
+    methods: {
+        deleteResume(resumeId){
+            axios.post(`/resumes/${resumeId}`, {
+                _method: 'DELETE'
+            }).then( response => {
+                location.reload();
+            })
+
+        }
+
     }
 }
 </script>
+}

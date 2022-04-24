@@ -103,6 +103,7 @@ class ResumeController extends Controller
      */
     public function destroy(Resume $resume)
     {
-        //
+        $resume->delete();
+        return redirect()->route('resumes.index');
     }
 }

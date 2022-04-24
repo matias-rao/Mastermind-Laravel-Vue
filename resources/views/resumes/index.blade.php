@@ -13,4 +13,6 @@
             </div>
         </div>
     </div>
+
 @endsection
+<script>window.Laravel = {csrfToken: '{{ csrf_token() }}'}</script>

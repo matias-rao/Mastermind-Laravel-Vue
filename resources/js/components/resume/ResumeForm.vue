@@ -4,13 +4,6 @@
 
             <input type="hidden" name="content" v-bind:value="JSON.stringify(resume.content)"/>
 
-            <!--
-                TODO: Si titulo y contenido son valores nulos, devolver errores por laravel, no mostrar al usuario errores SQL
-                Pistas: Se debera utilizar las propiedades para pasar los errores que devuelva laravel
-                BonusTrack: Si existe algun error, y algun campo de content tenia un valor, que lo traiga.
-
-                eventhandler
-            -->
             <Tab title="Basics" icon="fas fa-user">
                 <strong v-if="errors.length != 0" class="alert-danger">
                     Please fix the following error(s):
